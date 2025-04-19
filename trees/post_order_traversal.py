@@ -12,6 +12,54 @@ def postorder(node):
         print(node.data)
 
 
+# https://www.geeksforgeeks.org/iterative-postorder-traversal-using-stack/
+def postOrderIterative(root):
+    stack = []
+    
+    while(True):
+        while(root != None):
+            stack.append(root)
+            stack.append(root)
+            root = root.left
+
+        # Check for empty stack
+        if (len(stack) == 0):
+            return
+        
+        root = stack.pop()
+
+        if (len(stack) > 0 and stack[-1] == root):
+            root = root.right
+        else:
+            print(root.data, end = " ")
+            root = None
+
+
+# My attempt
+def postOrderIterative(root):
+    stack = []
+
+    while(True):
+        while root is not None:
+            stack.append(root)
+            stack.append(root)
+            root = root.left
+        
+        if len(stack) == 0:
+            return
+
+        root = stack.pop()
+
+        if len(stack) > 0  and root == stack[-1]:
+            root = root.right
+        else:
+            print(root.data)
+            root = None
+
+        
+
+            
+
 # create root
 root = Node(4)
 ''' following is the tree after above statement 
